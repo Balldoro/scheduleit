@@ -1,15 +1,11 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import store from './app/store';
-import App from './App';
+import React from "react"
+import "@testing-library/jest-dom/extend-expect";
+import { render } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
-  const { getByText } = render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
-
-  expect(getByText(/learn/i)).toBeInTheDocument();
-});
+describe("App", () => {
+    test("App renders correctly", () => {
+       const {getByRole} = render(<App />);
+        expect(getByRole("heading",{name: "Hello from App!"})).toBeInTheDocument();
+    })
+})
