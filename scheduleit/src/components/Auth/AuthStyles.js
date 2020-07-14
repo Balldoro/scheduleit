@@ -1,8 +1,27 @@
 import styled from "styled-components";
 
+export const Main = styled.main`
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+`;
+
 export const Container = styled.div`
-  width: 95%;
+  width: 90%;
+  margin: 0 5%;
+  @media (min-width: 620px) {
+    width: 45%;
+    max-width: 550px;
+  }
+`;
+
+export const Image = styled.img`
+  display: none;
+  width: 45%;
   margin: 0 auto;
+  @media (min-width: 620px) {
+    display: block;
+  }
 `;
 
 export const Title = styled.h2`
@@ -17,7 +36,7 @@ export const Title = styled.h2`
     content: "";
     position: absolute;
     display: block;
-    width: 40%;
+    width: 120px;
     height: 2px;
     background-color: #2fe797;
     left: 50%;
