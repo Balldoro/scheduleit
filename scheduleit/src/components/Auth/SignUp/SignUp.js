@@ -1,30 +1,31 @@
 import React from "react";
+import { Title, Input, Form, Label, Button } from "../AuthStyles";
 
 function SignUp() {
   return (
     <section>
-      <h2>Sign Up</h2>
-      <form>
+      <Title>Sign Up</Title>
+      <Form>
         <div>
-          <label>
+          <Label>
             First Name
-            <input type="text" />
-          </label>
-          <label>
+            <Input type="text" />
+          </Label>
+          <Label>
             Last Name
-            <input type="text" />
-          </label>
+            <Input type="text" />
+          </Label>
         </div>
-        <label>
+        <Label>
           E-mail
-          <input type="email" />
-        </label>
-        <label>
+          <Input type="email" />
+        </Label>
+        <Label>
           Password
-          <input type="password" />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
+          <Input type="password" />
+        </Label>
+        <Button type="submit">Create an account</Button>
+      </Form>
     </section>
   );
 }

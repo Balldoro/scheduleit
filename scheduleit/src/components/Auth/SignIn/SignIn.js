@@ -1,20 +1,21 @@
 import React from "react";
+import { Title, Form, Label, Input, Button } from "../AuthStyles";
 
 function SignIn() {
   return (
     <section>
-      <h2>Sign In</h2>
-      <form>
-        <label>
+      <Title>Sign In</Title>
+      <Form>
+        <Label>
           E-mail
-          <input type="email" />
-        </label>
-        <label>
+          <Input type="email" />
+        </Label>
+        <Label>
           Password
-          <input type="password" />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
+          <Input type="password" />
+        </Label>
+        <Button type="submit">Log In</Button>
+      </Form>
     </section>
   );
 }
