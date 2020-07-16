@@ -1,46 +1,61 @@
 import React, { useState } from "react";
 import { Title, Input, Form, Label, Button } from "../AuthStyles";
 
-function SignUp() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function SignUp({ createUser }) {
+  const [userData, setUserData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createUser(userData);
+  };
+
+  const handleOnChange = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+  };
 
   return (
     <section>
       <Title>Sign Up</Title>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Label>
           First Name
           <Input
             type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            name="firstName"
+            value={userData.firstName}
+            onChange={handleOnChange}
           />
         </Label>
         <Label>
           Last Name
           <Input
             type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            name="lastName"
+            value={userData.lastName}
+            onChange={handleOnChange}
           />
         </Label>
         <Label>
           E-mail
           <Input
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            value={userData.email}
+            onChange={handleOnChange}
           />
         </Label>
         <Label>
           Password
           <Input
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            value={userData.password}
+            onChange={handleOnChange}
           />
         </Label>
         <Button type="submit">Create an account</Button>

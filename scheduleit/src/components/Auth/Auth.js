@@ -3,18 +3,22 @@ import SignUp from "./SignUp/SignUp";
 import SignIn from "./SignIn/SignIn";
 import { OrDecor, Container, Image, Main } from "./AuthStyles";
 import photo from "./note_draw.svg";
+import { connect } from "react-redux";
+import { createUser } from "../../store/actions/authActions";
 
-function Auth() {
+function Auth({ createUser }) {
   return (
     <Main>
       <Container>
         <SignIn />
         <OrDecor>OR</OrDecor>
-        <SignUp />
+        <SignUp createUser={createUser} />
       </Container>
       <Image src={photo} />
     </Main>
   );
 }
 
-export default Auth;
+export default connect(null, (dispatch) => ({
+  createUser: (userData) => dispatch(createUser(userData)),
+}))(Auth);
