@@ -5,7 +5,7 @@ import {
 
 const initialState = {
   isLoading: false,
-  user: null,
+  user: JSON.parse(localStorage.getItem("user")) || null,
 };
 function authReducer(state = initialState, action) {
   switch (action.type) {

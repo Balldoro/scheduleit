@@ -22,6 +22,7 @@ export function createUser(userData) {
       firstName,
       lastName,
     });
+    localStorage.setItem("user", JSON.stringify(user.uid));
 
     dispatch(successCreateUser(user.uid));
   };
