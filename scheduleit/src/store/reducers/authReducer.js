@@ -23,7 +23,12 @@ function authReducer(state = initialState, action) {
       break;
     case SUCCESS_CREATE_USER:
     case SUCCESS_LOGIN_USER:
-      return { ...state, isLoading: false, user: action.payload };
+      return {
+        ...state,
+        isLoading: false,
+        user: action.payload,
+        errors: { signIn: "", signUp: "" },
+      };
       break;
     case FAILURE_LOGIN_USER:
       return {
