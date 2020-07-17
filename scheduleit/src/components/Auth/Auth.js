@@ -5,8 +5,12 @@ import { OrDecor, Container, Image, Main } from "./AuthStyles";
 import photo from "./note_draw.svg";
 import { connect } from "react-redux";
 import { createUser, loginUser } from "../../store/actions/authActions";
+import { Redirect } from "react-router-dom";
 
-function Auth({ createUser, loginUser }) {
+function Auth({ user, createUser, loginUser }) {
+  if (user) {
+    return <Redirect to="/dashboard" />;
+  }
   return (
     <Main>
       <Container>
@@ -26,4 +30,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Auth);
+export default connect(
+  (state) => ({ user: state.auth.user }),
+  mapDispatchToProps
+)(Auth);
