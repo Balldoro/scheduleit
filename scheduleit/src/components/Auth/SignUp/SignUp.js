@@ -29,6 +29,7 @@ function SignUp({ createUser, errorMessage }) {
             type="text"
             name="firstName"
             value={userData.firstName}
+            required
             onChange={handleOnChange}
           />
         </Label>
@@ -38,6 +39,7 @@ function SignUp({ createUser, errorMessage }) {
             type="text"
             name="lastName"
             value={userData.lastName}
+            required
             onChange={handleOnChange}
           />
         </Label>
@@ -47,6 +49,7 @@ function SignUp({ createUser, errorMessage }) {
             type="email"
             name="email"
             value={userData.email}
+            required
             onChange={handleOnChange}
           />
         </Label>
@@ -56,6 +59,7 @@ function SignUp({ createUser, errorMessage }) {
             type="password"
             name="password"
             value={userData.password}
+            required
             onChange={handleOnChange}
           />
         </Label>

@@ -20,6 +20,7 @@ function SignIn({ loginUser, errorMessage }) {
           <Input
             type="email"
             value={email}
+            reguired
             onChange={(e) => setEmail(e.target.value)}
           />
         </Label>
@@ -28,6 +29,7 @@ function SignIn({ loginUser, errorMessage }) {
           <Input
             type="password"
             value={password}
+            required
             onChange={(e) => setPassword(e.target.value)}
           />
         </Label>
