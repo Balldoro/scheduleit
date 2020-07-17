@@ -56,6 +56,17 @@ export const OrDecor = styled.div`
   font-family: "Roboto", sans-serif;
 `;
 
+export const ErrorMessage = styled.p`
+  background-color: #e64949;
+  padding: 10px;
+  color: #fff;
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+  font-family: Roboto;
+  border-radius: 5px;
+  text-align: center;
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;

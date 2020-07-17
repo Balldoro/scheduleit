@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Title, Input, Form, Label, Button } from "../AuthStyles";
+import { Title, Input, Form, Label, Button, ErrorMessage } from "../AuthStyles";
 
 function SignUp({ createUser, errorMessage }) {
   const [userData, setUserData] = useState({
@@ -22,7 +22,7 @@ function SignUp({ createUser, errorMessage }) {
     <section>
       <Title>Sign Up</Title>
       <Form onSubmit={handleSubmit}>
-        {errorMessage && <p>{errorMessage}</p>}
+        {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
         <Label>
           First Name
           <Input

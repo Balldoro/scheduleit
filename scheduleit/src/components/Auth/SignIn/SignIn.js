@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Title, Form, Label, Input, Button } from "../AuthStyles";
+import { Title, Form, Label, Input, Button, ErrorMessage } from "../AuthStyles";
 
 function SignIn({ loginUser, errorMessage }) {
   const [email, setEmail] = useState("");
@@ -14,7 +14,7 @@ function SignIn({ loginUser, errorMessage }) {
     <section>
       <Title>Sign In</Title>
       <Form onSubmit={handleSubmit}>
-        {errorMessage && <p>{errorMessage}</p>}
+        {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
         <Label>
           E-mail
           <Input
