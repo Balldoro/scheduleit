@@ -7,21 +7,28 @@ import { connect } from "react-redux";
 import { createUser, loginUser } from "../../store/actions/authActions";
 import { Redirect } from "react-router-dom";
 
-function Auth({ user, createUser, loginUser }) {
+function Auth({ user, errors, createUser, loginUser }) {
   if (user) {
     return <Redirect to="/dashboard" />;
   }
   return (
     <Main>
       <Container>
-        <SignIn loginUser={loginUser} />
+        <SignIn loginUser={loginUser} errorMessage={errors.signIn} />
         <OrDecor>OR</OrDecor>
-        <SignUp createUser={createUser} />
+        <SignUp createUser={createUser} errorMessage={errors.signUp} />
       </Container>
       <Image src={photo} />
     </Main>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.auth.user,
+    errors: state.auth.errors,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -30,7 +37,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(
-  (state) => ({ user: state.auth.user }),
-  mapDispatchToProps
-)(Auth);
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
