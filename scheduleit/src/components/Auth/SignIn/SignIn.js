@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { Title, Form, Label, Input, Button } from "../AuthStyles";
 
-function SignIn() {
+function SignIn({ loginUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    loginUser(email, password);
+  };
 
   return (
     <section>
       <Title>Sign In</Title>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Label>
           E-mail
           <Input
