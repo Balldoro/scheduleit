@@ -11,18 +11,18 @@ import {
   SettingsLink,
 } from "./UserPanelStyles";
 
-function UserPanel() {
+function UserPanel({ user, logOut }) {
   return (
     <Container>
       <UserIconWrapper>
         <UserIcon />
       </UserIconWrapper>
-      <UserName>Marek Miklaszewski</UserName>
+      <UserName>{user}</UserName>
       <ManageContainer>
         <SettingsLink to="/account">
           <SettingsIcon />
         </SettingsLink>
-        <LogoutButton>
+        <LogoutButton onClick={logOut}>
           <LogoutIcon />
         </LogoutButton>
       </ManageContainer>

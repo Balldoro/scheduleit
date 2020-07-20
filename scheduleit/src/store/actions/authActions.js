@@ -6,6 +6,7 @@ import {
   REQUEST_LOGIN_USER,
   FAILURE_LOGIN_USER,
   FAILURE_CREATE_USER,
+  SUCCESS_LOGOUT_USER,
 } from "../constants/authConstants";
 
 export function requestCreateUser() {
@@ -65,5 +66,17 @@ export function loginUser(email, password) {
     } catch (err) {
       dispatch(failureLoginUser(err.message));
     }
+  };
+}
+
+export function successLogoutUser() {
+  return { type: SUCCESS_LOGOUT_USER };
+}
+
+export function logoutUser() {
+  return async (dispatch) => {
+    auth.signOut();
+    localStorage.removeItem("user");
+    dispatch(successLogoutUser());
   };
 }
