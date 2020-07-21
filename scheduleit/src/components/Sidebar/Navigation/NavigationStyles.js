@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { FaProjectDiagram, FaPlus } from "react-icons/fa";
-import { Link, NavLink } from "react-router-dom";
+import { FaProjectDiagram } from "react-icons/fa";
 
 export const ActionButton = styled.button`
   border: none;
@@ -13,6 +12,15 @@ export const ActionButton = styled.button`
   width: 100%;
   padding: 15px 0;
   cursor: pointer;
+  color: #484848;
+`;
+
+export const ActionLink = styled(ActionButton)`
+  justify-content: flex-start;
+  &.active {
+    color: #272727;
+    font-weight: 500;
+  }
 `;
 
 export const NameContainer = styled.div`
@@ -23,42 +31,4 @@ export const NameContainer = styled.div`
 export const NameIcon = styled(FaProjectDiagram)`
   margin-right: 0.5rem;
   font-size: 1.25rem;
-`;
-
-export const ProjectSign = styled.div`
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  margin-right: 0.5rem;
-  background-color: ${(props) => props.color};
-`;
-
-export const ProjectLink = styled(NavLink)`
-  padding: 12px;
-  display: flex;
-  border-bottom: 1px solid #f3f3f3;
-  font-size: 0.95rem;
-  color: #484848;
-  cursor: pointer;
-  &.active {
-    color: #272727;
-    font-weight: 500;
-  }
-`;
-
-export const NewProjectButton = styled.button`
-  border: none;
-  background-color: transparent;
-  font-size: 0.95rem;
-  width: 100%;
-  text-align: left;
-  padding: 12px;
-  border-bottom: 1px solid #f3f3f3;
-  cursor: pointer;
-`;
-
-export const NewProjectIcon = styled(FaPlus)`
-  margin-right: 0.5rem;
-  width: 18px;
-  height: 18px;
 `;

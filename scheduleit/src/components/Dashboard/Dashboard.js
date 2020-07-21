@@ -4,9 +4,8 @@ import { Redirect } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import { getUserInfo } from "../../store/actions/userActions";
 import { getUserProjects } from "../../store/actions/userActions";
-import { successLogoutUser } from "../../store/actions/authActions";
 
-function Dashboard({ user, userData, getUserInfo, getUserProjects, logOut }) {
+function Dashboard({ user, getUserInfo, getUserProjects }) {
   useEffect(() => {
     if (user) {
       getUserInfo(user);
@@ -19,15 +18,14 @@ function Dashboard({ user, userData, getUserInfo, getUserProjects, logOut }) {
   }
   return (
     <>
-      <Sidebar userData={userData} logOut={logOut} />
+      <Sidebar />
       <main></main>
     </>
   );
 }
 export default connect(
-  (state) => ({ user: state.auth.user, userData: state.user }),
+  (state) => ({ user: state.auth.user }),
   (dispatch) => ({
-    logOut: () => dispatch(successLogoutUser()),
     getUserInfo: (id) => dispatch(getUserInfo(id)),
     getUserProjects: (id) => dispatch(getUserProjects(id)),
   })
