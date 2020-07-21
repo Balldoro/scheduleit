@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Projects from "../Projects/Projects";
 import { ActionLink } from "./NavigationStyles";
 import { FaColumns } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 function Navigation({ userProjects, createProject, uid, deleteProject }) {
-  const [openTab, setOpenTab] = useState("");
   return (
     <ul>
       <li>
@@ -20,8 +19,6 @@ function Navigation({ userProjects, createProject, uid, deleteProject }) {
           createProject={createProject}
           uid={uid}
           deleteProject={deleteProject}
-          setOpenTab={setOpenTab}
-          openTab={openTab}
         />
       </li>
     </ul>

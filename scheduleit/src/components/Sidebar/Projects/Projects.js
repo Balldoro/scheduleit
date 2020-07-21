@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ActionButton,
   NameContainer,
@@ -14,20 +14,17 @@ import {
 } from "./ProjectsStyles";
 import { FaChevronDown, FaChevronUp, FaTrash } from "react-icons/fa";
 
-function Projects({ userProjects, deleteProject, uid, openTab, setOpenTab }) {
+function Projects({ userProjects, deleteProject, uid }) {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <ActionButton
-        onClick={() => {
-          openTab !== "projects" ? setOpenTab("projects") : setOpenTab("");
-        }}
-      >
+      <ActionButton onClick={() => setIsOpen(!isOpen)}>
         <NameContainer>
           <NameIcon /> Projects
         </NameContainer>
-        {openTab === "projects" ? <FaChevronUp /> : <FaChevronDown />}
+        {isOpen ? <FaChevronUp /> : <FaChevronDown />}
       </ActionButton>
-      {openTab === "projects" && (
+      {isOpen && (
         <ul>
           {userProjects &&
             userProjects.map((project) => (
