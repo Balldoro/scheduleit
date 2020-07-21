@@ -28,7 +28,10 @@ export function getUserProjects(id) {
       .doc(id)
       .collection("projects")
       .onSnapshot((snapshot) => {
-        const allProjects = snapshot.docs.map((doc) => doc.data());
+        const allProjects = snapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
         dispatch(successGetUserProjects(allProjects));
       });
   };
