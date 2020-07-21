@@ -3,13 +3,12 @@ const {
   SUCCESS_GET_USER_PROJECTS,
 } = require("../constants/userConstants");
 
-const initialState = { firstName: "", lastName: "", projects: {} };
+const initialState = { info: { firstName: "", lastName: "" }, projects: {} };
 
 function userReducer(state = initialState, action) {
   switch (action.type) {
     case SUCCESS_GET_USER_INFO:
-      const { firstName, lastName } = action.payload;
-      return { ...state, firstName, lastName };
+      return { ...state, info: action.payload };
       break;
     case SUCCESS_GET_USER_PROJECTS:
       return { ...state, projects: action.payload };

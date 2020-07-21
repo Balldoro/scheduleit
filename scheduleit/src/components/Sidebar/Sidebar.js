@@ -1,18 +1,13 @@
 import React from "react";
 import UserPanel from "./UserPanel/UserPanel";
 import { Container } from "./SidebarStyles";
-import { connect } from "react-redux";
-import { logoutUser } from "../../store/actions/authActions";
 
-function Sidebar({ user, logOut }) {
+function Sidebar({ userData: { info, projects }, logOut }) {
   return (
     <Container>
-      <UserPanel user={user} logOut={logOut} />
+      <UserPanel userInfo={info} logOut={logOut} />
     </Container>
   );
 }
 
-export default connect(
-  (state) => ({ user: state.auth.user }),
-  (dispatch) => ({ logOut: () => dispatch(logoutUser()) })
-)(Sidebar);
+export default Sidebar;

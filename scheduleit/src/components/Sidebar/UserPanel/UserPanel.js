@@ -11,13 +11,15 @@ import {
   SettingsLink,
 } from "./UserPanelStyles";
 
-function UserPanel({ user, logOut }) {
+function UserPanel({ userInfo, logOut }) {
   return (
     <Container>
       <UserIconWrapper>
         <UserIcon />
       </UserIconWrapper>
-      <UserName>{user}</UserName>
+      <UserName>
+        {userInfo && `${userInfo.firstName} ${userInfo.lastName}`}
+      </UserName>
       <ManageContainer>
         <SettingsLink to="/account">
           <SettingsIcon />
