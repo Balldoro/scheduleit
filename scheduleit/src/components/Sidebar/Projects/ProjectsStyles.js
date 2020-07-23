@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 
 export const ProjectSign = styled.div`
-  width: 18px;
+  min-width: 18px;
   height: 18px;
   border-radius: 50%;
   margin-right: 0.5rem;
@@ -15,7 +15,7 @@ export const ProjectItem = styled.li`
   justify-content: space-between;
   align-items: center;
   padding: 12px;
-  height: 45px;
+  min-height: 45px;
   border-bottom: 1px solid #f3f3f3;
   color: #484848;
   font-size: 0.95rem;
