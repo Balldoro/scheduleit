@@ -10,7 +10,7 @@ import { FaTrash } from "react-icons/fa";
 function ProjectItem({ data: { name, color, id }, uid, deleteProject }) {
   const path = `/dashboard/${name.toLowerCase()}`;
   return (
-    <ItemContainer key={name}>
+    <ItemContainer>
       <ProjectLink to={path}>
         <ProjectSign color={color} />
         {name}

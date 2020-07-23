@@ -28,6 +28,7 @@ function Projects({ userProjects, createProject, deleteProject, uid }) {
                 data={project}
                 uid={uid}
                 deleteProject={deleteProject}
+                key={project.id}
               />
             ))}
           <li>
