@@ -4,16 +4,10 @@ import {
   NameContainer,
   NameIcon,
 } from "../Navigation/NavigationStyles";
-import {
-  ProjectSign,
-  NewProjectButton,
-  NewProjectIcon,
-  ProjectLink,
-  ProjectItem,
-  DeleteProjectButton,
-} from "./ProjectsStyles";
+import { NewProjectButton, NewProjectIcon } from "./ProjectsStyles";
 import { FaChevronDown, FaChevronUp, FaTrash } from "react-icons/fa";
 import AddProjectPopUp from "../PopUps/AddProjectPopUp";
+import ProjectItem from "./ProjectItem/ProjectItem";
 
 function Projects({ userProjects, createProject, deleteProject, uid }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,17 +24,11 @@ function Projects({ userProjects, createProject, deleteProject, uid }) {
         <ul>
           {userProjects &&
             userProjects.map((project) => (
-              <ProjectItem key={project.name}>
-                <ProjectLink to={`/dashboard/${project.name.toLowerCase()}`}>
-                  <ProjectSign color={project.color} />
-                  {project.name}
-                </ProjectLink>
-                <DeleteProjectButton
-                  onClick={() => deleteProject(uid, project.id)}
-                >
-                  <FaTrash />
-                </DeleteProjectButton>
-              </ProjectItem>
+              <ProjectItem
+                data={project}
+                uid={uid}
+                deleteProject={deleteProject}
+              />
             ))}
           <li>
             <NewProjectButton
