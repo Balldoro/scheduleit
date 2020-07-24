@@ -5,8 +5,8 @@ import {
   NameIcon,
 } from "../Navigation/NavigationStyles";
 import { NewProjectButton, NewProjectIcon } from "./ProjectsStyles";
-import { FaChevronDown, FaChevronUp, FaTrash } from "react-icons/fa";
-import AddProjectPopUp from "../PopUps/AddProjectPopUp";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import AddProjectPopUp from "../../PopUps/AddProjectPopUp";
 import ProjectItem from "./ProjectItem/ProjectItem";
 
 function Projects({ userProjects, createProject, deleteProject, uid }) {

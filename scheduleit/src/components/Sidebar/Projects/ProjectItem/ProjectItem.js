@@ -6,7 +6,7 @@ import {
   DeleteProjectButton,
 } from "./ProjectItemStyles";
 import { FaTrash } from "react-icons/fa";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function ProjectItem({ data: { name, color, id }, uid, deleteProject }) {
   const path = `/dashboard/${name.toLowerCase()}`;

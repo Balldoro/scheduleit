@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import UserPanel from "./UserPanel/UserPanel";
 import { Container, CloseButton } from "./SidebarStyles";
 import Navigation from "./Navigation/Navigation";

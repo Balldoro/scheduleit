@@ -9,11 +9,11 @@ import {
   PopUpHeader,
   CloseButton,
 } from "./AddProjectPopUpStyles";
-import { Label } from "../../Auth/AuthStyles";
+import { Label } from "../Auth/AuthStyles";
 import { FaWindowClose } from "react-icons/fa";
 
 function AddProjectPopUp({ createProject, uid, closePopUp }) {
-  const [color, setColor] = useState("#222");
+  const [color, setColor] = useState("#222222");
   const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
