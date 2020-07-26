@@ -12,17 +12,15 @@ export const Container = styled.div`
 
 export const CloseButton = styled.button`
   position: absolute;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   border: none;
   top: 50%;
   left: ${(props) => (props.active ? "240px" : "0")};
-  font-size: 1.5rem;
   background-color: #2fe797;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   padding: 5px;
   display: flex;
-  align-items: center;
   @media (min-width: 800px) {
     display: none;
   }

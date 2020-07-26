@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaRegUser, FaCog, FaSignOutAlt } from "react-icons/fa";
+import { FaRegUser, FaCog } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
@@ -35,16 +35,8 @@ export const UserName = styled.span`
   margin: 0.7rem 0;
 `;
 
-export const ManageContainer = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const SettingsLink = styled(Link)`
+export const Settings = styled(Link)`
   position: relative;
-
   &::before {
     font-size: 0.9rem;
     content: "Settings";
@@ -56,9 +48,9 @@ export const SettingsLink = styled(Link)`
     width: 80px;
     padding: 5px 10px;
     border-radius: 5px;
-    top: 45%;
-    right: -8px;
+    top: 40%;
     transform: translateY(-50%);
+    right: -8px;
   }
   &:hover,
   &:focus {
@@ -69,45 +61,22 @@ export const SettingsLink = styled(Link)`
   }
 `;
 
-export const SettingsIcon = styled(FaCog)`
-  font-size: 1.1rem;
-  position: relative;
-  z-index: 5;
-`;
-
-export const LogoutButton = styled.button`
+export const LogOut = styled(Settings)`
+  margin-left: 1.5rem;
   border: none;
   background-color: transparent;
-  margin-left: 1.5rem;
   cursor: pointer;
-  position: relative;
-
   &::before {
-    font-size: 0.9rem;
     content: "Log Out";
-    position: absolute;
-    display: none;
-    background-color: #52b591;
-    color: #fff;
-    text-align: right;
-    width: 80px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    top: 45%;
     left: -8px;
-    transform: translateY(-50%);
-  }
-  &:hover,
-  &:focus {
-    color: #fff;
-    &::before {
-      display: block;
-    }
+    right: 0;
+    top: 45%;
+    text-align: right;
   }
 `;
 
-export const LogoutIcon = styled(FaSignOutAlt)`
-  font-size: 1.1rem;
+export const ActionIcon = styled(FaCog)`
   position: relative;
-  z-index: 5;
+  z-index: 1;
+  font-size: 1.1rem;
 `;

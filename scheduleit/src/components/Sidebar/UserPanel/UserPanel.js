@@ -4,12 +4,11 @@ import {
   UserIconWrapper,
   UserName,
   Container,
-  ManageContainer,
-  SettingsIcon,
-  LogoutIcon,
-  LogoutButton,
-  SettingsLink,
+  ActionIcon,
+  LogOut,
+  Settings,
 } from "./UserPanelStyles";
+import { FaSignOutAlt } from "react-icons/fa";
 
 function UserPanel({ userInfo, logOut }) {
   return (
@@ -20,14 +19,14 @@ function UserPanel({ userInfo, logOut }) {
       <UserName>
         {userInfo && `${userInfo.firstName} ${userInfo.lastName}`}
       </UserName>
-      <ManageContainer>
-        <SettingsLink to="/account">
-          <SettingsIcon />
-        </SettingsLink>
-        <LogoutButton onClick={logOut}>
-          <LogoutIcon />
-        </LogoutButton>
-      </ManageContainer>
+      <div>
+        <Settings to="/account">
+          <ActionIcon />
+        </Settings>
+        <LogOut as={"button"} onClick={logOut}>
+          <ActionIcon as={FaSignOutAlt} />
+        </LogOut>
+      </div>
     </Container>
   );
 }
