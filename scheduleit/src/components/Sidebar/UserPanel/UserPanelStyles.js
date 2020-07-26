@@ -42,8 +42,8 @@ export const Settings = styled(Link)`
     content: "Settings";
     position: absolute;
     display: none;
-    background-color: #52b591;
-    color: #fff;
+    background-color: #2fe797;
+    color: #272727;
     text-align: left;
     width: 80px;
     padding: 5px 10px;
@@ -54,7 +54,6 @@ export const Settings = styled(Link)`
   }
   &:hover,
   &:focus {
-    color: #fff;
     &::before {
       display: block;
     }
@@ -78,5 +77,5 @@ export const LogOut = styled(Settings)`
 export const ActionIcon = styled(FaCog)`
   position: relative;
   z-index: 1;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 `;
