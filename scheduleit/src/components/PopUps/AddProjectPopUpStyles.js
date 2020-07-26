@@ -82,3 +82,8 @@ export const Submit = styled.button`
   font-size: 1rem;
   cursor: pointer;
 `;
+
+export const ErrorMessage = styled.span`
+  font-size: 0.8rem;
+  color: #ce2c2c;
+`;

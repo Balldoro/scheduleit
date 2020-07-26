@@ -8,18 +8,23 @@ import {
   Container,
   PopUpHeader,
   CloseButton,
+  ErrorMessage,
 } from "./AddProjectPopUpStyles";
 import { Label } from "../Auth/AuthStyles";
 import { FaWindowClose } from "react-icons/fa";
 
 function AddProjectPopUp({ createProject, closePopUp }) {
   const [color, setColor] = useState("#222222");
-  const [name, setName] = useState("");
+  const [name, setName] = useState({ value: "", error: "" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createProject(color, name);
-    closePopUp(false);
+    if (name.value) {
+      createProject(color, name.value);
+      closePopUp(false);
+    } else {
+      setName({ ...name, error: "Name can not be empty!" });
+    }
   };
 
   return (
@@ -44,9 +49,10 @@ function AddProjectPopUp({ createProject, closePopUp }) {
             Name of project
             <Input
               type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={name.value}
+              onChange={(e) => setName({ ...name, value: e.target.value })}
             />
+            {name.error && <ErrorMessage>{name.error}</ErrorMessage>}
           </Label>
           <Submit type="submit">Add Project</Submit>
         </form>
