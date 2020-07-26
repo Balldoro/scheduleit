@@ -11,7 +11,6 @@ import { logoutUser } from "../../store/actions/authActions";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 function Sidebar({
-  uid,
   userData: { info, projects },
   logOut,
   createProject,
@@ -35,7 +34,6 @@ function Sidebar({
             userProjects={projects}
             createProject={createProject}
             deleteProject={deleteProject}
-            uid={uid}
           />
         </Container>
       )}
@@ -44,12 +42,12 @@ function Sidebar({
 }
 
 export default connect(
-  (state) => ({ uid: state.auth.user, userData: state.user }),
-  (dispatch) => ({
+  (state) => ({ userData: state.user }),
+  (dispatch, ownProps) => ({
     logOut: () => dispatch(logoutUser()),
-    createProject: (userID, color, name) =>
-      dispatch(createProject(userID, color, name)),
-    deleteProject: (userID, projectID) =>
-      dispatch(deleteProject(userID, projectID)),
+    createProject: (color, name) =>
+      dispatch(createProject(ownProps.uid, color, name)),
+    deleteProject: (projectID) =>
+      dispatch(deleteProject(ownProps.uid, projectID)),
   })
 )(Sidebar);

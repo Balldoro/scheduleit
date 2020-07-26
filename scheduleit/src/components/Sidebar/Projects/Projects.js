@@ -9,7 +9,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import AddProjectPopUp from "../../PopUps/AddProjectPopUp";
 import ProjectItem from "./ProjectItem/ProjectItem";
 
-function Projects({ userProjects, createProject, deleteProject, uid }) {
+function Projects({ userProjects, createProject, deleteProject }) {
   const [isOpen, setIsOpen] = useState(false);
   const [addProjectIsOpen, setAddProjectIsOpen] = useState(false);
   return (
@@ -26,7 +26,6 @@ function Projects({ userProjects, createProject, deleteProject, uid }) {
             userProjects.map((project) => (
               <ProjectItem
                 data={project}
-                uid={uid}
                 deleteProject={deleteProject}
                 key={project.id}
               />
@@ -44,7 +43,6 @@ function Projects({ userProjects, createProject, deleteProject, uid }) {
       {addProjectIsOpen && (
         <AddProjectPopUp
           createProject={createProject}
-          uid={uid}
           closePopUp={setAddProjectIsOpen}
         />
       )}

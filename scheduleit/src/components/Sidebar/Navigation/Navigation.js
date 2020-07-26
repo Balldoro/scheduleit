@@ -1,21 +1,21 @@
 import React from "react";
 import Projects from "../Projects/Projects";
-import { ActionLink } from "./NavigationStyles";
+import { ActionLink, NameIcon } from "./NavigationStyles";
 import { FaColumns, FaTasks } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
-function Navigation({ userProjects, createProject, uid, deleteProject }) {
+function Navigation({ userProjects, createProject, deleteProject }) {
   return (
     <ul>
       <li>
         <ActionLink as={NavLink} to="/dashboard" exact>
-          <FaColumns style={{ marginRight: "0.5rem" }} />
+          <NameIcon as={FaColumns} />
           Dashboard
         </ActionLink>
       </li>
       <li>
         <ActionLink as={NavLink} to="/dashboard/daily" exact>
-          <FaTasks style={{ marginRight: "0.5rem" }} />
+          <NameIcon as={FaTasks} />
           Daily
         </ActionLink>
       </li>
@@ -23,7 +23,6 @@ function Navigation({ userProjects, createProject, uid, deleteProject }) {
         <Projects
           userProjects={userProjects}
           createProject={createProject}
-          uid={uid}
           deleteProject={deleteProject}
         />
       </li>

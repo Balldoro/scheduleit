@@ -12,13 +12,12 @@ function Dashboard({ user, getUserInfo, getUserProjects }) {
       getUserProjects(user);
     }
   }, [user, getUserProjects, getUserInfo]);
-
   if (!user) {
     return <Redirect to="/login" />;
   }
   return (
     <>
-      <Sidebar />
+      <Sidebar uid={user} />
       <main></main>
     </>
   );

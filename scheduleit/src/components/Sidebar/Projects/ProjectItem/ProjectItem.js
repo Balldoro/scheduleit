@@ -8,12 +8,12 @@ import {
 import { FaTrash } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 
-function ProjectItem({ data: { name, color, id }, uid, deleteProject }) {
+function ProjectItem({ data: { name, color, id }, deleteProject }) {
   const path = `/dashboard/${name.toLowerCase()}`;
   const history = useHistory();
 
   const handleDeleteProject = () => {
-    deleteProject(uid, id);
+    deleteProject(id);
     if (history.location.pathname === path) {
       history.replace("/dashboard");
     }

@@ -12,13 +12,13 @@ import {
 import { Label } from "../Auth/AuthStyles";
 import { FaWindowClose } from "react-icons/fa";
 
-function AddProjectPopUp({ createProject, uid, closePopUp }) {
+function AddProjectPopUp({ createProject, closePopUp }) {
   const [color, setColor] = useState("#222222");
   const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createProject(uid, color, name);
+    createProject(color, name);
     closePopUp(false);
   };
 
