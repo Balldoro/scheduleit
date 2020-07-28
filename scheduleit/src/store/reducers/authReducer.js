@@ -5,6 +5,7 @@ import {
   REQUEST_LOGIN_USER,
   FAILURE_LOGIN_USER,
   FAILURE_CREATE_USER,
+  SUCCESS_LOGOUT_USER,
 } from "../constants/authConstants";
 
 const initialState = {
@@ -43,6 +44,9 @@ function authReducer(state = initialState, action) {
         isLoading: false,
         errors: { ...state.errors, signUp: action.payload },
       };
+      break;
+    case SUCCESS_LOGOUT_USER:
+      return { ...state, user: null };
       break;
     default:
       return state;
