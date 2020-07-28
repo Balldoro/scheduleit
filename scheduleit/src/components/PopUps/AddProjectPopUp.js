@@ -13,18 +13,20 @@ import {
 import { Label } from "../Auth/AuthStyles";
 import { FaWindowClose } from "react-icons/fa";
 
-function AddProjectPopUp({ createProject, closePopUp }) {
-  const [color, setColor] = useState("#222222");
-  const [name, setName] = useState({ value: "", error: "" });
+function AddProjectPopUp({ createProject, togglePopUp }) {
+  const [projectData, setProjectData] = useState({
+    name: "",
+    color: "#222222",
+    errors: {},
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name.value) {
-      createProject(color, name.value);
-      closePopUp(false);
-    } else {
-      setName({ ...name, error: "Name can not be empty!" });
-    }
+    createProject(projectData);
+    togglePopUp(false);
+  };
+  const handleOnChange = (e) => {
+    setProjectData({ ...projectData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -32,7 +34,7 @@ function AddProjectPopUp({ createProject, closePopUp }) {
       <Container>
         <PopUpHeader>
           <PopUpTitle>Add new project</PopUpTitle>
-          <CloseButton onClick={() => closePopUp(false)}>
+          <CloseButton onClick={togglePopUp}>
             <FaWindowClose />
           </CloseButton>
         </PopUpHeader>
@@ -41,18 +43,24 @@ function AddProjectPopUp({ createProject, closePopUp }) {
             Color
             <ColorInput
               type="color"
-              value={color}
-              onChange={(e) => setColor(e.target.value)}
+              value={projectData.color}
+              name="color"
+              onChange={handleOnChange}
+              required
             />
           </Label>
           <Label>
             Name of project
             <Input
               type="text"
-              value={name.value}
-              onChange={(e) => setName({ ...name, value: e.target.value })}
+              name="name"
+              value={projectData.name}
+              onChange={handleOnChange}
+              required
             />
-            {name.error && <ErrorMessage>{name.error}</ErrorMessage>}
+            {projectData.errors.name && (
+              <ErrorMessage>{projectData.errors.name}</ErrorMessage>
+            )}
           </Label>
           <Submit type="submit">Add Project</Submit>
         </form>
