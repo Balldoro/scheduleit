@@ -22,9 +22,12 @@ function Sidebar({
       setIsOpen(true);
     }
   });
+  const handleOnClick = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <>
-      <CloseButton active={isOpen} onClick={() => setIsOpen(!isOpen)}>
+      <CloseButton active={isOpen} onClick={handleOnClick}>
         {isOpen ? <FaChevronLeft /> : <FaChevronRight />}
       </CloseButton>
       {isOpen && (

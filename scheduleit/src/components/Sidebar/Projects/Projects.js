@@ -10,11 +10,18 @@ import AddProjectPopUp from "../../PopUps/AddProjectPopUp";
 import ProjectItem from "./ProjectItem/ProjectItem";
 
 function Projects({ userProjects, createProject, deleteProject }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [addProjectIsOpen, setAddProjectIsOpen] = useState(false);
+
+  const toggleProjects = () => {
+    setIsOpen(!isOpen);
+  };
+  const toggleAddProject = () => {
+    setAddProjectIsOpen(!addProjectIsOpen);
+  };
   return (
     <>
-      <ActionButton onClick={() => setIsOpen(!isOpen)}>
+      <ActionButton onClick={toggleProjects}>
         <NameContainer>
           <NameIcon /> Projects
         </NameContainer>
@@ -22,7 +29,7 @@ function Projects({ userProjects, createProject, deleteProject }) {
       </ActionButton>
       {isOpen && (
         <ul>
-          {userProjects &&
+          {userProjects.length &&
             userProjects.map((project) => (
               <ProjectItem
                 data={project}
@@ -31,9 +38,7 @@ function Projects({ userProjects, createProject, deleteProject }) {
               />
             ))}
           <li>
-            <NewProjectButton
-              onClick={() => setAddProjectIsOpen(!addProjectIsOpen)}
-            >
+            <NewProjectButton onClick={toggleAddProject}>
               <NewProjectIcon />
               Add new Project
             </NewProjectButton>
@@ -43,7 +48,7 @@ function Projects({ userProjects, createProject, deleteProject }) {
       {addProjectIsOpen && (
         <AddProjectPopUp
           createProject={createProject}
-          closePopUp={setAddProjectIsOpen}
+          togglePopUp={toggleAddProject}
         />
       )}
     </>
