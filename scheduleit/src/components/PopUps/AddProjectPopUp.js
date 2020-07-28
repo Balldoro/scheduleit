@@ -22,8 +22,15 @@ function AddProjectPopUp({ createProject, togglePopUp }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createProject(projectData);
-    togglePopUp(false);
+    if (!projectData.name.trim()) {
+      setProjectData({
+        ...projectData,
+        errors: { ...projectData.errors, name: "Name can not be empty!" },
+      });
+    } else {
+      createProject(projectData);
+      togglePopUp(false);
+    }
   };
   const handleOnChange = (e) => {
     setProjectData({ ...projectData, [e.target.name]: e.target.value });
